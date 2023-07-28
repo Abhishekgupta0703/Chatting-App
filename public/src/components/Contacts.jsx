@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Logo from "../assets/logo.svg";
+import Logout from './Logout'
 
 export default function Contacts({ contacts, changeChat }) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
@@ -49,6 +50,7 @@ export default function Contacts({ contacts, changeChat }) {
             })}
           </div>
           <div className="current-user">
+            <div className="bo">
             <div className="avatar">
               <img
                 src={`data:image/svg+xml;base64,${currentUserImage}`}
@@ -57,7 +59,8 @@ export default function Contacts({ contacts, changeChat }) {
             </div>
             <div className="username">
               <h2>{currentUserName}</h2>
-            </div>
+            </div></div>
+            <Logout/>
           </div>
         </Container>
       )}
@@ -66,10 +69,11 @@ export default function Contacts({ contacts, changeChat }) {
 }
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 10% 75% 15%;
+  grid-template-rows: 10% 80.4% 10%;
   overflow: hidden;
   background-color: #080420;
   .brand {
+    background:#120944;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -83,6 +87,7 @@ const Container = styled.div`
     }
   }
   .contacts {
+    padding: 1rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,9 +131,16 @@ const Container = styled.div`
   .current-user {
     background-color: #0d0d30;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding:0 .7rem;
     align-items: center;
     gap: 2rem;
+    .bo{
+      display:flex;
+      align-items: center;
+      justify-content:space-between;
+      gap: 1rem;
+    }
     .avatar {
       img {
         height: 4rem;
